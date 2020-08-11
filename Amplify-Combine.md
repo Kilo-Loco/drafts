@@ -285,8 +285,8 @@ func createPost() {
 
     createPostToken = AnyPublisher<Post, CreatePostError>
         .upload(image, key: key)
-        .savePost(post: post)
-        .record(.postCreated)
+        .save(post)
+        .recordEvent(.postCreated)
         .sink(
             receiveCompletion: { print($0) },
             receiveValue: { print($0) }
