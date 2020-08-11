@@ -275,6 +275,25 @@ func createPost() {
 7. Once we have gone through the chain, we want to record events whenever a user successfully posts to the Feed. This is where `.handleEvents` comes in, specifically the `receiveOutput` argument. When working with `receiveOutput`, we have access to the desired output, `Post` in this case, and we can use any useful information about the post to include into our Analytics event. The example here doesn't use any info from the `Post` but the event is still recorded with the basic info.
 8. At the very end of the chain, we are provided with our saved `Post` thanks to the output from `DataStore.save`. We could do whatever we want with this `Post`, or we can choose to simply ignore it since we will have observed the created event in our `observePosts` publisher.
 
+Now depending on your coding style, you might be willing to wrap up the functionality of these chained publishers into their own functions. The end result could be something as condensed as this:
+
+```swift
+@State var createPostToken: AnyCancellable?
+func createPost() {
+    let key = UUID().uuidString + ".jpg"
+    let post = Post(userId: userId, imageKey: key, caption: caption)
+
+    createPostToken = AnyPublisher<Post, CreatePostError>
+        .upload(image, key: key)
+        .savePost(post: post)
+        .record(.postCreated)
+        .sink(
+            receiveCompletion: { print($0) },
+            receiveValue: { print($0) }
+        )
+}
+```
+
 ### Wrapping Up
 
 There are still several use cases that weren't covered in this article, but I already know that adopting them will be very straight forward since the APIs tend to follow similar patterns.
