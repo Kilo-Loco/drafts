@@ -18,7 +18,7 @@ func savePostWithCallbacks() {
         switch result {
         case .success(let identifyResult):
             let labelsResult = identifyResult as! IdentifyLabelsResult
-            labels = labelsResult.labels.map(\.name)
+            self.labels = labelsResult.labels.map(\.name)
             dispatchGroup.leave()
 
         case .failure(let error):
