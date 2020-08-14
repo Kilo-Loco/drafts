@@ -43,7 +43,7 @@ func savePostWithCallbacks() {
     // the image have been identified
     dispatchGroup.notify(queue: .global()) {
         let post = Post(imageKey: imageKey, tags: self.labels)
-        _ = Amplify.API.mutate(request: .update(post)) { event in
+        _ = Amplify.API.mutate(request: .create(post)) { event in
             switch event {
             case .success(let result):
                 switch result {
@@ -87,7 +87,7 @@ And here's what that same process looks like using Combine:
                 let labelsResult = identifyResult as! IdentifyLabelsResult
                 let tags = labelsResult.labels.map(\.name)
                 let post = Post(imageKey: imageKey, tags: tags)
-                return Amplify.API.mutate(request: .update(post))
+                return Amplify.API.mutate(request: .create(post))
                     .resultPublisher
                     .tryMap { try $0.get() }
                     .mapError { PostError.failedToGetTags(error: $0) }
