@@ -66,38 +66,38 @@ And here's what that same process looks like using Combine:
 
 ```swift
 @State var token: AnyCancellable?
-    func savePostWithCombine() {
-        let imageKey = UUID().uuidString + ".jpg"
-        
-        // Label objects in image
-        let getImageTags = Amplify.Predictions.identify(type: .detectLabels(.labels), image: imageUrl)
-            .resultPublisher
-            .mapError { PostError.failedToGetTags(error: $0) }
-            
-        // Upload image to storage
-        let uploadImage = Amplify.Storage.uploadFile(key: imageKey,local: imageUrl)
-            .resultPublisher
-            .mapError { PostError.failedToUploadImage(error: $0) }
-        
-        token = Publishers.CombineLatest(getImageTags, uploadImage)
-            
-            // Only save the post once image has been uploaded and object in
-            // the image have been identified
-            .flatMap { identifyResult, _ -> AnyPublisher<Post, PostError> in
-                let labelsResult = identifyResult as! IdentifyLabelsResult
-                let tags = labelsResult.labels.map(\.name)
-                let post = Post(imageKey: imageKey, tags: tags)
-                return Amplify.API.mutate(request: .create(post))
-                    .resultPublisher
-                    .tryMap { try $0.get() }
-                    .mapError { PostError.failedToGetTags(error: $0) }
-                    .eraseToAnyPublisher()
-            }
-            .sink(
-                receiveCompletion: { print($0) },
-                receiveValue: { print("post saved - \($0)") }
-            )
-    }
+func savePostWithCombine() {
+    let imageKey = UUID().uuidString + ".jpg"
+
+    // Label objects in image
+    let getImageTags = Amplify.Predictions.identify(type: .detectLabels(.labels), image: imageUrl)
+        .resultPublisher
+        .mapError { PostError.failedToGetTags(error: $0) }
+
+    // Upload image to storage
+    let uploadImage = Amplify.Storage.uploadFile(key: imageKey,local: imageUrl)
+        .resultPublisher
+        .mapError { PostError.failedToUploadImage(error: $0) }
+
+    token = Publishers.CombineLatest(getImageTags, uploadImage)
+
+        // Only save the post once image has been uploaded and object in
+        // the image have been identified
+        .flatMap { identifyResult, _ -> AnyPublisher<Post, PostError> in
+            let labelsResult = identifyResult as! IdentifyLabelsResult
+            let tags = labelsResult.labels.map(\.name)
+            let post = Post(imageKey: imageKey, tags: tags)
+            return Amplify.API.mutate(request: .create(post))
+                .resultPublisher
+                .tryMap { try $0.get() }
+                .mapError { PostError.failedToGetTags(error: $0) }
+                .eraseToAnyPublisher()
+        }
+        .sink(
+            receiveCompletion: { print($0) },
+            receiveValue: { print("post saved - \($0)") }
+        )
+}
 ```
 
 So you might be able to see what we use the ❤️ when talking about Combine 😊
