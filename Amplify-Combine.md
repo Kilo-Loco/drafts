@@ -1,8 +1,106 @@
 # AWS Amplify + Swift Combine = ❤️
 
-While there may be a lot of great things that are included in the AWS Amplify 1.1 release for iOS, the thing that I am most excited about is the support for Combine.
+While there may be a lot of great things that are included in the AWS Amplify 1.1 release for iOS, the thing that I am most excited about is the support for Combine. Combine is a first party reactive framework that makes it easy to deal with asynchronous events in a declarative way.
 
 Using the libraries is very straight forward already since almost all the API work with the `Swift.Result` type, but the fact that now code can be even cleaner AND reactive all while avoiding callback hell. Now that's just amazing to me!
+
+One of the most common use cases developers come across when programming an app that performs networking requests is performing one or more tasks, then taking the data from those tasks to perform another task.
+
+Here's what it might look like if you wanted to identify objects in an image and upload the image asynchronously, then create post from the image with callbacks/closures:
+
+```swift
+func savePostWithCallbacks() {
+    let imageKey = UUID().uuidString + ".jpg"
+
+    // Label objects in image
+    dispatchGroup.enter()
+    _ = Amplify.Predictions.identify(type: .detectLabels(.labels), image: imageUrl) { result in
+        switch result {
+        case .success(let identifyResult):
+            let labelsResult = identifyResult as! IdentifyLabelsResult
+            labels = labelsResult.labels.map(\.name)
+            dispatchGroup.leave()
+
+        case .failure(let error):
+            print(error)
+        }
+    }
+
+    // Upload image to storage
+    dispatchGroup.enter()
+    _ = Amplify.Storage.uploadFile(key: imageKey, local: imageUrl) { result in
+
+        switch result {
+        case .success:
+            dispatchGroup.leave()
+
+        case .failure(let error):
+            print(error)
+        }
+    }
+
+    // Only save the post once image has been uploaded and object in
+    // the image have been identified
+    dispatchGroup.notify(queue: .global()) {
+        let post = Post(imageKey: imageKey, tags: self.labels)
+        _ = Amplify.API.mutate(request: .update(post)) { event in
+            switch event {
+            case .success(let result):
+                switch result {
+                case .success(let post):
+                    print("Post saved - \(post)")
+
+                case .failure(let error):
+                    print(error)
+                }
+
+            case .failure(let error):
+                print("Event error - \(error)")
+            }
+        }
+    }
+}
+```
+
+And here's what that same process looks like using Combine:
+
+```swift
+@State var token: AnyCancellable?
+    func savePostWithCombine() {
+        let imageKey = UUID().uuidString + ".jpg"
+        
+        // Label objects in image
+        let getImageTags = Amplify.Predictions.identify(type: .detectLabels(.labels), image: imageUrl)
+            .resultPublisher
+            .mapError { PostError.failedToGetTags(error: $0) }
+            
+        // Upload image to storage
+        let uploadImage = Amplify.Storage.uploadFile(key: imageKey,local: imageUrl)
+            .resultPublisher
+            .mapError { PostError.failedToUploadImage(error: $0) }
+        
+        token = Publishers.CombineLatest(getImageTags, uploadImage)
+            
+            // Only save the post once image has been uploaded and object in
+            // the image have been identified
+            .flatMap { identifyResult, _ -> AnyPublisher<Post, PostError> in
+                let labelsResult = identifyResult as! IdentifyLabelsResult
+                let tags = labelsResult.labels.map(\.name)
+                let post = Post(imageKey: imageKey, tags: tags)
+                return Amplify.API.mutate(request: .update(post))
+                    .resultPublisher
+                    .tryMap { try $0.get() }
+                    .mapError { PostError.failedToGetTags(error: $0) }
+                    .eraseToAnyPublisher()
+            }
+            .sink(
+                receiveCompletion: { print($0) },
+                receiveValue: { print("post saved - \($0)") }
+            )
+    }
+```
+
+So you might be able to see what we use the ❤️ when talking about Combine 😊
 
 Let's take a peek at the new Combine APIs that are available by going through an example of what the code might look like for a social media app.
 
