@@ -2,7 +2,7 @@
 
 While there may be a lot of great things that are included in the AWS Amplify 1.1 release for iOS, the thing that I am most excited about is the support for Combine. Combine is a first party reactive framework that makes it easy to deal with asynchronous events in a declarative way.
 
-Using the libraries is very straight forward already since almost all the API work with the `Swift.Result` type, but the fact that now code can be even cleaner AND reactive all while avoiding callback hell. Now that's just amazing to me!
+Using the libraries is very straight forward already since almost all the API work with the `Swift.Result` type, but now code can be even cleaner AND reactive all while avoiding callback hell. Now that's just amazing to me!
 
 One of the most common use cases developers come across when programming an app that performs networking requests is performing one or more tasks, then taking the data from those tasks to perform another task.
 
