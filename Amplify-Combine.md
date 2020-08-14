@@ -6,7 +6,7 @@ Using the libraries is very straight forward already since almost all the API wo
 
 One of the most common use cases developers come across when programming an app that performs networking requests is performing one or more tasks, then taking the data from those tasks to perform another task.
 
-Here's what it might look like if you wanted to identify objects in an image and upload the image asynchronously, then create a post from the image with callbacks/closures:
+Here's what it might look like if you wanted to identify objects in an image and upload the image asynchronously, then create a post from the image with callbacks:
 
 ```swift
 func savePostWithCallbacks() {
