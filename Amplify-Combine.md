@@ -95,7 +95,7 @@ func savePostWithCombine() {
         }
         .sink(
             receiveCompletion: { print($0) },
-            receiveValue: { print("post saved - \($0)") }
+            receiveValue: { print("Post saved - \($0)") }
         )
 }
 ```
