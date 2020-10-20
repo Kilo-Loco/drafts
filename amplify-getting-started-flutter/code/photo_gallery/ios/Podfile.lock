@@ -1,4 +1,31 @@
 PODS:
+  - Amplify (1.1.1):
+    - Amplify/Default (= 1.1.1)
+  - Amplify/Default (1.1.1)
+  - amplify_core (0.0.1):
+    - Amplify
+    - AmplifyPlugins/AWSCognitoAuthPlugin
+    - AWSPluginsCore (= 1.1.1)
+    - Flutter
+  - AmplifyPlugins/AWSCognitoAuthPlugin (1.1.1):
+    - AWSAuthCore (~> 2.15.0)
+    - AWSCore (~> 2.15.0)
+    - AWSMobileClient (~> 2.15.0)
+    - AWSPluginsCore (= 1.1.1)
+  - AWSAuthCore (2.15.3):
+    - AWSCore (= 2.15.3)
+  - AWSCognitoIdentityProvider (2.15.3):
+    - AWSCognitoIdentityProviderASF (= 1.0.2)
+    - AWSCore (= 2.15.3)
+  - AWSCognitoIdentityProviderASF (1.0.2)
+  - AWSCore (2.15.3)
+  - AWSMobileClient (2.15.3):
+    - AWSAuthCore (= 2.15.3)
+    - AWSCognitoIdentityProvider (= 2.15.3)
+  - AWSPluginsCore (1.1.1):
+    - Amplify (= 1.1.1)
+    - AWSCore (~> 2.15.0)
+    - AWSMobileClient (~> 2.15.0)
   - camera (0.0.1):
     - Flutter
   - Flutter (1.0.0)
@@ -6,11 +33,25 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - amplify_core (from `.symlinks/plugins/amplify_core/ios`)
   - camera (from `.symlinks/plugins/camera/ios`)
   - Flutter (from `Flutter`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
 
+SPEC REPOS:
+  trunk:
+    - Amplify
+    - AmplifyPlugins
+    - AWSAuthCore
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - AWSMobileClient
+    - AWSPluginsCore
+
 EXTERNAL SOURCES:
+  amplify_core:
+    :path: ".symlinks/plugins/amplify_core/ios"
   camera:
     :path: ".symlinks/plugins/camera/ios"
   Flutter:
@@ -19,10 +60,19 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
 
 SPEC CHECKSUMS:
+  Amplify: e23b610dde2539d67ec29843c7f01010b44b98ba
+  amplify_core: c13855678f4701fa81096949a56be6a1d489d982
+  AmplifyPlugins: 9e1e1bff2a8b1676307101ca7d768a7be49c0456
+  AWSAuthCore: 598e8eb56e12799877414d10b04598de12a15992
+  AWSCognitoIdentityProvider: 4a721292eda37a8c3ef451e8fec28abe14aff18e
+  AWSCognitoIdentityProviderASF: 0fb6ea671c05a63276e320726f680cd880522442
+  AWSCore: 5a8f9d7461dbe5ea6a5473c41cf113b687e19136
+  AWSMobileClient: 5c29678413764ee3bcd528421331deb0a35b72fb
+  AWSPluginsCore: 4e98e284fff7763470ef94f7538449f20d891f70
   camera: a0ca5080336f7af47b88436e5e26da3dee5568f0
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
 
-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
 
 COCOAPODS: 1.9.3

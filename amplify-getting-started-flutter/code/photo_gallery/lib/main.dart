@@ -1,4 +1,6 @@
+import 'package:amplify_core/amplify_core.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_gallery/amplifyconfiguration.dart';
 import 'package:photo_gallery/auth_service.dart';
 import 'package:photo_gallery/camera_flow.dart';
 import 'package:photo_gallery/login_page.dart';
@@ -15,11 +17,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final _amplify = Amplify();
   final _authService = AuthService();
 
   @override
   void initState() {
     super.initState();
+    _configureAmplify();
     _authService.showLogin();
   }
 
@@ -73,5 +77,14 @@ class _MyAppState extends State<MyApp> {
             }
           }),
     );
+  }
+
+  void _configureAmplify() async {
+    try {
+      await _amplify.configure(amplifyconfig);
+      print('Successfully configured Amplify 🎉');
+    } catch (e) {
+      print('Could not configure Amplify ☠️');
+    }
   }
 }

@@ -33,6 +33,8 @@ dependencies:
   path_provider:
   path:
 
+  amplify_core: '<1.0.0'
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

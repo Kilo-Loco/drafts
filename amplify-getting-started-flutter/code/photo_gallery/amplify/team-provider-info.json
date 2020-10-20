@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-photogallery-dev-202023-authRole",
+            "UnauthRoleArn": "arn:aws:iam::088987693321:role/amplify-photogallery-dev-202023-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::088987693321:role/amplify-photogallery-dev-202023-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-photogallery-dev-202023-deployment",
+            "UnauthRoleName": "amplify-photogallery-dev-202023-unauthRole",
+            "StackName": "amplify-photogallery-dev-202023",
+            "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-photogallery-dev-202023/32251980-1283-11eb-90a1-028ffeef84c1",
+            "AmplifyAppId": "d3p0ir7eqcu4le"
+        }
+    }
+}
