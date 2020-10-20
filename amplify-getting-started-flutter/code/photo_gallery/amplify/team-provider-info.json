@@ -10,6 +10,11 @@
             "StackName": "amplify-photogallery-dev-202023",
             "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-photogallery-dev-202023/32251980-1283-11eb-90a1-028ffeef84c1",
             "AmplifyAppId": "d3p0ir7eqcu4le"
+        },
+        "categories": {
+            "auth": {
+                "photogallery42b5391b": {}
+            }
         }
     }
 }

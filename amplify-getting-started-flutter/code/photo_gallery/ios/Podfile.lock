@@ -2,6 +2,11 @@ PODS:
   - Amplify (1.1.1):
     - Amplify/Default (= 1.1.1)
   - Amplify/Default (1.1.1)
+  - amplify_auth_cognito (0.0.1):
+    - Amplify
+    - AmplifyPlugins/AWSCognitoAuthPlugin
+    - Flutter
+    - ObjectMapper
   - amplify_core (0.0.1):
     - Amplify
     - AmplifyPlugins/AWSCognitoAuthPlugin
@@ -29,10 +34,12 @@ PODS:
   - camera (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - ObjectMapper (4.2.0)
   - path_provider (0.0.1):
     - Flutter
 
 DEPENDENCIES:
+  - amplify_auth_cognito (from `.symlinks/plugins/amplify_auth_cognito/ios`)
   - amplify_core (from `.symlinks/plugins/amplify_core/ios`)
   - camera (from `.symlinks/plugins/camera/ios`)
   - Flutter (from `Flutter`)
@@ -48,8 +55,11 @@ SPEC REPOS:
     - AWSCore
     - AWSMobileClient
     - AWSPluginsCore
+    - ObjectMapper
 
 EXTERNAL SOURCES:
+  amplify_auth_cognito:
+    :path: ".symlinks/plugins/amplify_auth_cognito/ios"
   amplify_core:
     :path: ".symlinks/plugins/amplify_core/ios"
   camera:
@@ -61,6 +71,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Amplify: e23b610dde2539d67ec29843c7f01010b44b98ba
+  amplify_auth_cognito: 21e6e4acd861653d73875ee7d8ddce1a404e23cf
   amplify_core: c13855678f4701fa81096949a56be6a1d489d982
   AmplifyPlugins: 9e1e1bff2a8b1676307101ca7d768a7be49c0456
   AWSAuthCore: 598e8eb56e12799877414d10b04598de12a15992
@@ -71,6 +82,7 @@ SPEC CHECKSUMS:
   AWSPluginsCore: 4e98e284fff7763470ef94f7538449f20d891f70
   camera: a0ca5080336f7af47b88436e5e26da3dee5568f0
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
 
 PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d

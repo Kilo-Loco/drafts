@@ -498,7 +498,7 @@ Add these two functions to `auth_service.dart`:
 ... // showLogin closing }
 
 // 1
-void loginWithCredentials(LoginCredentials credentials) {
+void loginWithCredentials(AuthCredentials credentials) {
  final state = AuthState(authFlowStatus: AuthFlowStatus.session);
  authStateController.add(state);
 }
@@ -512,7 +512,7 @@ void signUpWithCredentials(SignUpCredentials credentials) {
 ... // AuthService closing }
 ```
 
-1. When a user passes their `LoginCredentials` we will perform some logic and ultimately put the user in a `session` state.
+1. When a user passes any `AuthCredentials` we will perform some logic and ultimately put the user in a `session` state.
 2. Signing up will require that the email entered is verified by entering a verification code. Thus, the sign up logic should chage the state to `verification`.
 
 Let's start by updating `LoginPage` to send `LoginCredentials` via a `ValueChanged` property.
