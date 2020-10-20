@@ -220,7 +220,7 @@ void loginWithCredentials(AuthCredentials credentials) async {
 3. If the sign in is successful and the `isSignedIn` property on the result confirms the user is now signed in, we update the state to `session`.
 4. We should not reach this state in our app. If the user enters in the wrong credentials or gets any other error, it should result in our `catch` block.
 
-Lastly, update the `logOut` method:
+Now, update the `logOut` method:
 
 ```dart
 void logOut() async {
@@ -238,6 +238,34 @@ void logOut() async {
 
 1. When we call `Auth.signOut()` without passing in any options, we will sign out only the user on this device as opposed to signing the user out on all devices.
 2. We can reuse our `showLogin()` method to update the state and take the user back to the login screen once the sign out is successful.
+
+Lastly, we need to be able to automatically log the user in if they close the app but have already logged in during a previous session. Add this final function to `AuthService`.
+
+```dart
+void checkAuthStatus() async {
+ try {
+   await Amplify.Auth.fetchAuthSession();
+
+   final state = AuthState(authFlowStatus: AuthFlowStatus.session);
+   authStateController.add(state);
+ } catch (_) {
+   final state = AuthState(authFlowStatus: AuthFlowStatus.login);
+   authStateController.add(state);
+ }
+}
+```
+
+`checkAuthStatus` will attempt to get the current `AuthSession`; if it's successful, the user will be signed in. If the fetch fails, this means the user is not logged in and should be presented with `LoginPage`.
+
+At the moment, we are calling `showLogin` inside of the `initState` method of `_MyAppState`. Let's change that to `checkAuthStatus`:
+
+```dart
+... // _configureAmplify();
+
+_authService.checkAuthStatus();
+
+... // initState closing }
+```
 
 Those are the only modifications needed to compliment our existing authentication flow. Build and run the app and you should be able to sign up, confirm your email, sign out, then sign in again.
 

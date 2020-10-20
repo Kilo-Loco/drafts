@@ -89,4 +89,16 @@ class AuthService {
       print('Could not log out - ${authError.cause}');
     }
   }
+
+  void checkAuthStatus() async {
+    try {
+      await Amplify.Auth.fetchAuthSession();
+
+      final state = AuthState(authFlowStatus: AuthFlowStatus.session);
+      authStateController.add(state);
+    } catch (_) {
+      final state = AuthState(authFlowStatus: AuthFlowStatus.login);
+      authStateController.add(state);
+    }
+  }
 }
