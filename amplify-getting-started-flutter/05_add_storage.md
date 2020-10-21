@@ -230,7 +230,8 @@ GalleryPage(
    {Key key,
    this.imageUrlsController,
    this.shouldLogOut,
-   this.shouldShowCamera});
+   this.shouldShowCamera})
+    : super(key: key);
 
 ... // @override
 ```

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:photo_gallery/analytics_events.dart';
+import 'package:photo_gallery/analytics_service.dart';
 import 'package:photo_gallery/auth_credentials.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -85,5 +87,7 @@ class _SignUpPageState extends State<SignUpPage> {
     final credentials =
         SignUpCredentials(username: username, email: email, password: password);
     widget.didProvideCredentials(credentials);
+
+    AnalyticsService.log(SignUpEvent());
   }
 }

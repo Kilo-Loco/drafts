@@ -1,6 +1,9 @@
 import 'dart:async';
+import 'package:amplify_analytics_pinpoint/amplify_analytics_pinpoint.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:photo_gallery/analytics_events.dart';
+import 'package:photo_gallery/analytics_service.dart';
 
 class GalleryPage extends StatelessWidget {
   final StreamController<List<String>> imageUrlsController;
@@ -11,7 +14,10 @@ class GalleryPage extends StatelessWidget {
       {Key key,
       this.imageUrlsController,
       this.shouldLogOut,
-      this.shouldShowCamera});
+      this.shouldShowCamera})
+      : super(key: key) {
+    AnalyticsService.log(ViewGalleryEvent());
+  }
 
   @override
   Widget build(BuildContext context) {

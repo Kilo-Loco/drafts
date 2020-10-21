@@ -2,6 +2,8 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:photo_gallery/analytics_events.dart';
+import 'package:photo_gallery/analytics_service.dart';
 
 class CameraPage extends StatefulWidget {
   final CameraDescription camera;
@@ -55,6 +57,9 @@ class _CameraPageState extends State<CameraPage> {
       await _controller.takePicture(path);
 
       widget.didProvideImagePath(path);
+
+      AnalyticsService.log(TakePictureEvent(
+          cameraDirection: widget.camera.lensDirection.toString()));
     } catch (e) {
       print(e);
     }

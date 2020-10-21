@@ -745,7 +745,8 @@ class GalleryPage extends StatelessWidget {
   // 3
   final VoidCallback shouldShowCamera;
 
-  GalleryPage({Key key, this.shouldLogOut, this.shouldShowCamera});
+  GalleryPage({Key key, this.shouldLogOut, this.shouldShowCamera})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -36,6 +36,7 @@ dependencies:
   amplify_core: '<1.0.0'
   amplify_auth_cognito: '<1.0.0'
   amplify_storage_s3: '<1.0.0'
+  amplify_analytics_pinpoint: '<1.0.0'
 
   cached_network_image: ^2.3.3
 

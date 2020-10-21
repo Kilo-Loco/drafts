@@ -1,6 +1,6 @@
 {
     "identityPoolName": "photogallery42b5391b_identitypool_42b5391b",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "photog42b5391b",
     "userPoolName": "photogallery42b5391b_userpool_42b5391b",
     "autoVerifiedAttributes": [
