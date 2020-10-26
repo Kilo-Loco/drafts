@@ -10,6 +10,10 @@ In this module, we will explore the steps required to go down each of these rout
 - Expanding the app to a different platform or sharing with a team
 - Deleting the Amplify project locally and in the cloud
 
+## Key Concepts
+
+- Shared Backend - Amplify makes it easy to share a backend between different platforms and/or team members. All that's required is access to the same AWS account where the Amplify application is stored.
+
 # Implementation
 
 ## Securely Share Your Project

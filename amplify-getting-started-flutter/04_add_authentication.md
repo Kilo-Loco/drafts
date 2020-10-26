@@ -14,6 +14,10 @@ Using the custom auth flow we created in [Module 2](02_create_a_flutter_app.md),
 - Login an authenticated user
 - Sign out an authenticated user
 
+## Key Concepts
+
+- Authentication - Authentication is the process of verifying and managing a user, allowing them to interact with resources of the app.
+
 # Implementation
 
 ## Create the Authentication Service

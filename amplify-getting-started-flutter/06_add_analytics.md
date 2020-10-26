@@ -10,6 +10,10 @@ In this module, we will add the Analytics category to our Amplify app, create cu
 - Record analytics events to AWS Pinpoint
 - View the AWS Pinpoint dashboard
 
+## Key Concepts
+
+- Analytics - Recording when events occur for each instance of the app can be a valuable way to collect analytics on user behavior, leading to a better understanding of what features are most important to the app.
+
 # Implementation
 
 ## Create the Analytics Service

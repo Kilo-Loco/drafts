@@ -10,6 +10,11 @@ At this point, you will need to have the Amplify-Flutter Developer Preview versi
 - Install Amplify as a dependency for your project
 - Initialize Amplify libraries at runtime
 
+## Key Concepts
+
+- Amplify CLI - The Amplify CLI allows you to create, manage, and remove AWS services directly from your terminal.
+- Amplify Libraries - The Amplify libraries allow you to interact with AWS services from a web or mobile application.
+
 # Implementation
 
 ## Install Amplify CLI Developer Preview

@@ -17,6 +17,11 @@ Here is a gif of what the app will look like at the end this module.
 - Implement a grid of widgets
 - Take pictures with the device camera
 
+## Key Concepts
+
+- Navigator - This tutorial will be using the Flutter Navigator 2.0, which uses a list of pages to determine which view should be displayed using a declarative implementation.
+- Callbacks - In order to send data from one object to another, we will be using callbacks for communication. A callback is similar to a function in that it can be passed an arguement from the call site, but it executes code elsewhere.
+
 # Implementation
 
 Start Visual Studio Code and create a new Flutter project with a name of your choice.

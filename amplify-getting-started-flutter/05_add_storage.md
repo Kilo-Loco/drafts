@@ -11,6 +11,10 @@ In this module, we will add the Storage category to our Amplify app, upload pict
 - Download files from Amazon S3
 - Display and cache images from a url
 
+## Key Concepts
+
+- Storage - The concept of Storage is to be able to store files in a location and retrieve those files when needed. In this case, storing images to and downloading images from AWS S3.
+
 # Implementation
 
 ## Create the Storage Service
