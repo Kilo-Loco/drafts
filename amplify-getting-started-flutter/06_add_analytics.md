@@ -71,7 +71,7 @@ Pinpoint URL to track events https://us-west-2.console.aws.amazon.com/pinpoint/h
 
 Click the link to view the dashboard. It should look like this:
 
-![Pinpoint dashboard]()
+![Pinpoint dashboard](assets/pinpoint-dashboard.png)
 
 We will revisit the dashboard after recording a few analytic events.
 
@@ -270,15 +270,15 @@ amplify console
 
 You should see the overview of you Amplify project:
 
-![Amplify console overview]()
+![Amplify console overview](assets/amplify-console.png)
 
 Navigate to the Analytics tab and click the "View in Pinpoint" button:
 
-![Amplify console analytics]()
+![Amplify console analytics](assets/amplify-console-analytics.png)
 
 Navigate to the analytics events section and you should be able to see how many analytics events were recorded:
 
-![Pinpoint analytics graph]()
+![Pinpoint analytics graph](assets/pinpoint-dashboard-recorded-events.png)
 
 In this case, I was able to trigger 20 different events in the Photo Gallery app, showing that we have successfully implemented Amplify Analytics into our app.
 

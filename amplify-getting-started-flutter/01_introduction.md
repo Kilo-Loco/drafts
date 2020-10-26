@@ -15,11 +15,11 @@ In this tutorial, you will create a cross platform photo gallery app using AWS A
 
 This tutoial is divided into five modules focused on covering a particular topic in each one. Each module will continue to build off the previous modules, so it is recommended that you finish each module in the order listed.
 
-- [Create a Flutter App](02_create_a_flutter_app.md): Create a Flutter application with all the UI components implemented.
-- [Initialize Amplify](03_initialize_amplify.md): Initialize a local Amplify app using the AWS Amplify CLI.
-- [Add Authentication](04_add_authentication.md): Implement user authentication to your app.
-- [Add Storage](05_add_storage.md): Implement image upload and download to/from AWS S3.
-- [Add Analytics](06_add_analytics.md): Implement event logging in multiple areas throughout the app.
+- [Create a Flutter App](02_create_a_flutter_app.md) (30 minutes): Create a Flutter application with all the UI components implemented.
+- [Initialize Amplify](03_initialize_amplify.md) (10 minutes): Initialize a local Amplify app using the AWS Amplify CLI.
+- [Add Authentication](04_add_authentication.md) (10 minutes): Implement user authentication to your app.
+- [Add Storage](05_add_storage.md) (10 minutes): Implement image upload and download to/from AWS S3.
+- [Add Analytics](06_add_analytics.md) (10 minutes): Implement event logging in multiple areas throughout the app.
 
 The last module, [Clean Up](07_clean_up.md), is optional but recommended if you indend to make your project public as a security measure.
 
@@ -30,7 +30,7 @@ The last module, [Clean Up](07_clean_up.md), is optional but recommended if you 
 | ✅ AWS Level    | Beginner |
 | ✅ Flutter Level    | Beginner - Intermediate |
 | ✅ Dart Level  | Beginner - Intermediate |
-| ⏱ Time to complete | 1.5h |
+| ⏱ Time to complete | 70 minutes |
 | 💰 Cost to complete | [Free tier](https://aws.amazon.com/free) eligible |
 
 This tutorial will not require any previous knowledge with AWS or any of its services to follow along. However, there will be some more intermediate concepts covered when working with Flutter and Dart. For the best experience, be sure to familiarize yourself with concepts like `async`, the higher order function `map`, `Navigator` 2.0, and `StreamBuilder`.

@@ -8,7 +8,7 @@ This module will set the foundation of our app so the following modules can focu
 
 Here is a gif of what the app will look like at the end this module.
 
-![app demo gif]()
+![app demo gif](assets/app-demo.gif)
 
 ## What You Will Learn
 
@@ -1014,7 +1014,7 @@ if (snapshot.data.authFlowStatus == AuthFlowStatus.session)
 
 If you run the app again, you should be able to navigate through all screens of the app.
 
-![App flow demo]()
+![UI flow demo](assets/ui-flow-demo.gif)
 
 You have succussfully implemented the UI of the Photo Gallery app in Flutter.
 

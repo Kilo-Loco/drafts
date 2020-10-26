@@ -355,7 +355,7 @@ That's it! We're ready to start taking pictures with our app and upload them to 
 
 Build and run to give it a try!
 
-![First picture demo]()
+![First picture demo](assets/first-picture-demo.gif)
 
 Awesome! The core functionality of the app has been implemented and the user can take pictures which will be stored in a private section of the app's S3 bucket.
 

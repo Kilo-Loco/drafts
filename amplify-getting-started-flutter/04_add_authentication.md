@@ -269,7 +269,7 @@ _authService.checkAuthStatus();
 
 Those are the only modifications needed to compliment our existing authentication flow. Build and run the app and you should be able to sign up, confirm your email, sign out, then sign in again.
 
-![Authentication demo gif]()
+![Authentication demo gif](assets/auth-flow-demo.gif)
 
 You have successfully added user authentication to your photo gallery app 🤩
 

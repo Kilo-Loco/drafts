@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:amplify_analytics_pinpoint/amplify_analytics_pinpoint.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_gallery/analytics_events.dart';
