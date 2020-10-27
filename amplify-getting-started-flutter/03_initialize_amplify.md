@@ -27,7 +27,7 @@ To download the Amplify-Flutter Developer Preview version of the CLI, run the fo
 npm install -g @aws-amplify/cli@flutter-preview
 ```
 
-Verify you are now using the Flutter Preview version of the CLI by running `$ amplify --version` . You should see something like this:
+Verify you are now using the Flutter Preview version of the CLI by running `$ amplify --version`. You should see something like this:
 
 ```shell
 photo_gallery git:(master) ✗ amplify --version
@@ -110,7 +110,7 @@ https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html
 ? Please choose the profile you want to use default
 ```
 
-After the CLI has finished crating your project in the cloud, you should get an out like this:
+After the CLI has finished creating your project in the cloud, you should get an output like this:
 
 ```shell
 ✔ Successfully created initial AWS cloud resources for deployments.
@@ -138,12 +138,6 @@ amplify_core: '<1.0.0'
 
 Either save the file or run `$ flutter pub get` in the terminal at the root directory of your app.
 
-The process should finish with the following output:
-
-```shell
-exit code 0
-```
-
 For iOS, open the Podfile (ios > Podfile) and update the platform to `11.0` or higher:
 
 ```ruby
@@ -154,7 +148,7 @@ platform :ios, '11.0'
 ... # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ```
 
-## Integrate in your App
+## Integrate into your App
 
 To use the Amplify Flutter Library, it's important that Amplify is configured before any of the categories are used.
 
