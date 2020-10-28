@@ -2,13 +2,13 @@
 
 The Photo Gallery app is now fully functional with the ability to authenticate a user and allow them to take pictures that are uploaded to Storage. Now we need to focus on recording analytics to understand how users are interacting with our app.
 
-In this module, we will add the Analytics category to our Amplify app, create custom analytics events, implement those events, and view the [AWS Pinpoint](https://aws.amazon.com/pinpoint/) dashboard to see our analytics being tracked.
+In this module, we will add the Analytics category to our Amplify app, create custom analytics events, implement those events, and view the [Amazon Pinpoint](https://aws.amazon.com/pinpoint/) dashboard to see our analytics being tracked.
 
 ## What You Will Learn
 
 - Configure the Analytics category
-- Record analytics events to AWS Pinpoint
-- View the AWS Pinpoint dashboard
+- Record analytics events to Amazon Pinpoint
+- View the Amazon Pinpoint dashboard
 
 ## Key Concepts
 
@@ -79,7 +79,7 @@ Click the link to view the dashboard. It should look like this:
 
 We will revisit the dashboard after recording a few analytic events.
 
-## Installing the Dependency
+## Install the Dependency
 
 In Visual Studio Code, open `pubspec.yaml` and add Amplify Analytics as a dependency:
 
@@ -114,7 +114,7 @@ _amplify.addPlugin(
 ... // try {
 ```
 
-Run the app. You should still see the success message in the logs indicating that Amplify is still properly configured and is including the Storage plugin.
+Run the app. You should still see the success message in the logs indicating that Amplify is still properly configured and is including the Analytics plugin.
 
 ```shell
 flutter: Successfully configured Amplify 🎉
@@ -161,7 +161,7 @@ class ViewGalleryEvent extends AbstractAnalyticsEvent {
 }
 ```
 
-By creaating `AbstractAnalyticsEvent`, we can create custom analytics event objects that all have a common property, `value`, which will contain the `AnalyticsEvent` instance. With one line of code, we will be able to instantiate an `AbstractAnalyticsEvent` while keeping the implementation details in a single file.
+By creating `AbstractAnalyticsEvent`, we can create custom analytics event objects that all have a common property, `value`, which will contain the `AnalyticsEvent` instance. With one line of code, we will be able to instantiate an `AbstractAnalyticsEvent` while keeping the implementation details in a single file.
 
 We can take this one step further. Let's create an `AbstractAnalyticsEvent` for when a user takes a picture, but let's also give it the ability to track whether the user used the front or back camera of their device. To be able to accomplish this, we first need to add another constructor to `AbstractAnalyticsEvents` accepts an `AnalyticsEvent` as a parameter.
 
