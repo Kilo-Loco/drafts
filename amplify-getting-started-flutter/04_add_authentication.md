@@ -2,9 +2,7 @@
 
 The first Amplify category you will be adding to the app will be Authentication. Amplify leverages [Amazon Cognito](https://aws.amazon.com/cognito/) under the hood for managing user pools and identity pools.
 
-In this module you will learn how to sign up, confirm, login, and sign out a user.
-
-Using the custom auth flow we created in [Module 2](02_create_a_flutter_app.md), we will be implementing the functionality for each screen in just a few lines of code.
+In this module you will learn how to sign up, confirm, login, and sign out a user. We will be implementing the functionality for each screen in just a few lines of code.
 
 ## What You Will Learn
 
@@ -73,7 +71,7 @@ You should see the following output once the Auth resource has been successfully
 
 You can also verify that your Auth resource has been properly configured by viewing the `/lib/amplifyconfiguration.dart` file and inspecting the `auth` values.
 
-## Installing the Dependency
+## Install the Dependency
 
 Back in Visual Studio Code, open `pubspec.yaml` and add the following dependency:
 

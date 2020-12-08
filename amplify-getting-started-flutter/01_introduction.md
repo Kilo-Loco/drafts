@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this tutorial, you will create a cross platform photo gallery app using AWS Amplify as a serverless backend that interfaces with your Flutter app. Through the modules of this tutorial, you will implement a UI that allows the user to take pictures, create a sign in flow, upload and download images to/from a private AWS S3 bucket, and add various analytics event that can be monitored through AWS Pinpoint.
+In this tutorial, you will create a cross-platform photo gallery app using AWS Amplify as a serverless backend that interfaces with your Flutter app. Through the modules of this tutorial, you will implement a UI that allows the user to take pictures, create a sign-in flow, upload and download images to/from a private AWS S3 bucket, and add various analytics event that can be monitored through AWS Pinpoint.
 
 ## What You Will Learn
 
@@ -21,7 +21,7 @@ This tutoial is divided into five modules focused on covering a particular topic
 - [Add Storage](05_add_storage.md) (10 minutes): Implement image upload and download to/from AWS S3.
 - [Add Analytics](06_add_analytics.md) (10 minutes): Implement event logging in multiple areas throughout the app.
 
-The last module, [Clean Up](07_clean_up.md), is optional but recommended if you indend to make your project public as a security measure.
+The last module, [Clean Up](07_clean_up.md), is optional but recommended if you intend to make your project public as a security measure.
 
 ## Side Bar
 
@@ -33,7 +33,7 @@ The last module, [Clean Up](07_clean_up.md), is optional but recommended if you 
 | ⏱ Time to complete | 70 minutes |
 | 💰 Cost to complete | [Free tier](https://aws.amazon.com/free) eligible |
 
-This tutorial will not require any previous knowledge with AWS or any of its services to follow along. However, there will be some more intermediate concepts covered when working with Flutter and Dart. For the best experience, be sure to familiarize yourself with concepts like `async`, the higher order function `map`, `Navigator` 2.0, and `StreamBuilder`.
+This tutorial will not require any previous knowledge with AWS or any of its services to follow along. However, there will be some more intermediate concepts covered when working with Flutter and Dart. For the best experience, be sure to familiarize yourself with concepts like `async`, the higher order function `map`, `Navigator` 2.0, and `StreamBuilder`; you can find recipes covering these topics [here](https://flutter.dev/docs/cookbook).
 
 ## Prerequisites
 

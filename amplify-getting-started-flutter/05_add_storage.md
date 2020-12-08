@@ -13,7 +13,7 @@ In this module, we will add the Storage category to our Amplify app, upload pict
 
 ## Key Concepts
 
-- Storage - The concept of Storage is to be able to store files in a location and retrieve those files when needed. In this case, storing images to and downloading images from AWS S3.
+- Storage - The concept of Storage is to be able to store files in a location and retrieve those files when needed. In this case, storing images to and downloading images from Amazon S3.
 
 # Implementation
 
@@ -80,7 +80,7 @@ Once our Storage resource is finished being configured in the backend, we will s
 ✔ All resources are updated in the cloud
 ```
 
-## Installing the Dependency
+## Install the Dependency
 
 Next, open the `pubspec.yaml` file in Visual Studio code to add the Storage plugin as a dependency:
 
@@ -186,7 +186,7 @@ On iOS, to ensure the app can download the images, we need to update the `App Tr
 ... <!-- </dict> -->
 ```
 
-Attempting to list image urls from S3 is pointless if you haven't uploading anything, so let's add a function to upload images:
+Attempting to list image urls from S3 is pointless if you haven't uploaded anything, so let's add a function to upload images:
 
 ```dart
 // 1
@@ -282,7 +282,7 @@ Widget _galleryGrid() {
 2. The UI requires that the snapshot has data to display anything relevant to the user.
 3. We also need to determine if the data actually has items. If it does, then we continue on to building the `GridView`.
 4. Instead of using a hardcoded number, we can now make our `GridView` size based on the length of the data in our snapshot.
-5. If the snapshot doesn't have any items to , we will display some text indicating that there is nothing to show.
+5. If the snapshot doesn't have any items, we will display some text indicating that there is nothing to show.
 
 Right now we're still showing a `Placeholder` for each item in the grid. We will need to download each image from the URL provided by the stream. To make that easier, let's add a new dependency in `pubspec.yaml`:
 

@@ -2,7 +2,7 @@
 
 AWS Amplify is a suite of tools that allow developers to build apps quicker by providing easy to use libraries that make it possible to authenticate users, store files, capture analytics events, and much more, with just a few lines of code.
 
-In this module, you'll create and build out the UI of a photo gallery app. This includes the sign up flow, a gallery page for viewing images, and the ability to take a picture with the camera.
+In this module, you'll create and build out the UI of a photo gallery app. This includes the sign-up flow, a gallery page for viewing images, and the ability to take a picture with the camera.
 
 This module will set the foundation of our app so the following modules can focus on the actual Amplify implementations for the specific category.
 
@@ -12,7 +12,7 @@ Here is a gif of what the app will look like at the end this module.
 
 ## What You Will Learn
 
-- Implement a sign up and login flow
+- Implement a sign-up and login flow
 - Navigation between screens
 - Implement a grid of widgets
 - Take pictures with the device camera
@@ -23,6 +23,8 @@ Here is a gif of what the app will look like at the end this module.
 - Callbacks - In order to send data from one object to another, we will be using callbacks for communication. A callback is similar to a function in that it can be passed an arguement from the call site, but it executes code elsewhere.
 
 # Implementation
+
+## Create the Flutter Project
 
 Start Visual Studio Code and create a new Flutter project with a name of your choice.
 
@@ -61,6 +63,8 @@ class _MyAppState extends State<MyApp> {
 
 1. We have changed out `MyApp` widget into a `StatefulWidget`. We will be manipulating its state later.
 2. The home widget of our `MaterialApp` is a `Navigator` which will allow setup our navigation in a declarative way.
+
+## Create Auth Flow
 
 Before we can add pages to our `Navigator`, we need to create the widgets that will represent each of our pages. Let's start with the login page which we will put in a new file `login_page.dart`.
 
@@ -307,7 +311,7 @@ class AuthService {
 }
 ```
 
-1. `AuthFlowStatus` is an enumeration that will cover the four different states our auth flow can be in: the login page, sign up page, verification page, or a session. We will be adding the last two pages shortly.
+1. `AuthFlowStatus` is an enumeration that will cover the four different states our auth flow can be in: the login page, sign-up page, verification page, or a session. We will be adding the last two pages shortly.
 2. `AuthState` is the actual object we will be observing in our stream and it will contain `authFlowStatus` as a property.
 3. Our `AuthService` will serve two purposes, manage the stream controller of `AuthState` as well as contain all of our authentication functionality that will be added in the next module.
 4. `authStateController` is responsible for sending new `AuthState`'s down stream to be observed.
@@ -681,6 +685,8 @@ if (snapshot.data.authFlowStatus == AuthFlowStatus.verification)
 ... // pages closing ],
 ```
 
+## Create Camera/Gallery Flow
+
 With `VerificationPage` implemented, we can move onto the UI for when a user has signed in. We will be displaying a gallery of images and have the ability to take a picture with the device camera. We will create a `CameraFlow` widget that will handle state changes dictating when to show each screen.
 
 Create a new file called `camera_flow.dart` and add the following:
@@ -991,6 +997,8 @@ MaterialPage(
 
 Now the `CameraPage` will be initialized with a camera and return the `imagePath` once an image is taken. We are only closing the camera once a picture is taken right now.
 
+## Add Log Out
+
 To close the navigation loop of our UI, we need to add a log out method to `AuthService`.
 
 ```dart
@@ -1016,6 +1024,8 @@ if (snapshot.data.authFlowStatus == AuthFlowStatus.session)
 
 ... // pages closing ],
 ```
+
+## Test the App
 
 If you run the app again, you should be able to navigate through all screens of the app.
 
