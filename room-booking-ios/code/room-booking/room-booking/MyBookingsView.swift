@@ -13,6 +13,10 @@ struct MyBookingsView: View {
     @EnvironmentObject var sessionManager: SessionManager
     @StateObject var viewModel = ViewModel()
     
+    init(vm: ViewModel = .init()) {
+        _viewModel = .init(wrappedValue: vm)
+    }
+    
     var currentUser: User? {
         sessionManager.currentUser
     }
@@ -22,7 +26,7 @@ struct MyBookingsView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(viewModel.bookings) { booking in
-                        RoomListingView(
+                        RoomItemView(
                             room: booking.room,
                             bookingDates: booking.bookingDates
                         )
@@ -49,7 +53,7 @@ extension MyBookingsView {
             Amplify.DataStore.query(
                 Booking.self,
                 where: booking.guestId == user.id,
-                sort: .descending(booking.checkInDate)
+                sort: .ascending(booking.checkInDate)
             ) { result in
                 do {
                     let bookings = try result.get()
@@ -67,6 +71,11 @@ extension MyBookingsView {
 
 struct MyHotels_Previews: PreviewProvider {
     static var previews: some View {
-        MyBookingsView()
+        let room = Room(description: "Studio apartment", city: "El Segundo", price: 120, imageKey: "stockphoto-3")
+        let booking = Booking(room: room, guestId: "", checkInDate: .init(Calendar.current.date(byAdding: .day, value: 14, to: Date())!), checkOutDate: .init(Calendar.current.date(byAdding: .day, value: 16, to: Date())!))
+        let vm = MyBookingsView.ViewModel()
+        vm.bookings = [booking]
+        return MyBookingsView(vm: vm)
+            .environmentObject(SessionManager())
     }
 }

@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7C6F9884257EBF8600D67DDB /* room_bookingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F9883257EBF8600D67DDB /* room_bookingApp.swift */; };
-		7C6F9886257EBF8600D67DDB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F9885257EBF8600D67DDB /* ContentView.swift */; };
 		7C6F9888257EBF8700D67DDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F9887257EBF8700D67DDB /* Assets.xcassets */; };
 		7C6F988B257EBF8700D67DDB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F988A257EBF8700D67DDB /* Preview Assets.xcassets */; };
 		7C6F9894257EBFA800D67DDB /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F9893257EBFA800D67DDB /* RoomsView.swift */; };
 		7C6F9897257EBFDA00D67DDB /* MyBookingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F9896257EBFDA00D67DDB /* MyBookingsView.swift */; };
-		7C6F989B257EC31900D67DDB /* RoomListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F989A257EC31900D67DDB /* RoomListingView.swift */; };
+		7C6F989B257EC31900D67DDB /* RoomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F989A257EC31900D67DDB /* RoomItemView.swift */; };
 		7C6F98AF257ECCD300D67DDB /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F98AD257ECCD300D67DDB /* awsconfiguration.json */; };
 		7C6F98B0257ECCD300D67DDB /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C6F98AE257ECCD300D67DDB /* amplifyconfiguration.json */; };
 		7C6F98BA257ECD9000D67DDB /* Booking+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F98B3257ECD9000D67DDB /* Booking+Schema.swift */; };
@@ -37,13 +36,12 @@
 		5C8FCA924173BD68C9FBEDEE /* Pods_room_booking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_room_booking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6F9880257EBF8600D67DDB /* room-booking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "room-booking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6F9883257EBF8600D67DDB /* room_bookingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = room_bookingApp.swift; sourceTree = "<group>"; };
-		7C6F9885257EBF8600D67DDB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7C6F9887257EBF8700D67DDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C6F988A257EBF8700D67DDB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C6F988C257EBF8700D67DDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C6F9893257EBFA800D67DDB /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
 		7C6F9896257EBFDA00D67DDB /* MyBookingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookingsView.swift; sourceTree = "<group>"; };
-		7C6F989A257EC31900D67DDB /* RoomListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListingView.swift; sourceTree = "<group>"; };
+		7C6F989A257EC31900D67DDB /* RoomItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomItemView.swift; sourceTree = "<group>"; };
 		7C6F98AD257ECCD300D67DDB /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		7C6F98AE257ECCD300D67DDB /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 		7C6F98B3257ECD9000D67DDB /* Booking+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Booking+Schema.swift"; sourceTree = "<group>"; };
@@ -119,12 +117,11 @@
 				7C6F98D7257EF3A500D67DDB /* DataSeeder.swift */,
 				7C6F9893257EBFA800D67DDB /* RoomsView.swift */,
 				7C6F98CA257ED1DF00D67DDB /* SessionManager.swift */,
-				7C6F9885257EBF8600D67DDB /* ContentView.swift */,
 				7C6F9887257EBF8700D67DDB /* Assets.xcassets */,
 				7C6F988C257EBF8700D67DDB /* Info.plist */,
 				7C6F9889257EBF8700D67DDB /* Preview Content */,
 				7C6F9896257EBFDA00D67DDB /* MyBookingsView.swift */,
-				7C6F989A257EC31900D67DDB /* RoomListingView.swift */,
+				7C6F989A257EC31900D67DDB /* RoomItemView.swift */,
 				7C6F98C2257ECDAB00D67DDB /* LoginView.swift */,
 				7C6F98CD257ED32000D67DDB /* Booking+Extensions.swift */,
 				7C6F98D1257ED34600D67DDB /* Room+Extensions.swift */,
@@ -271,9 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C6F9886257EBF8600D67DDB /* ContentView.swift in Sources */,
 				7C6F98BC257ECD9000D67DDB /* Booking.swift in Sources */,
-				7C6F989B257EC31900D67DDB /* RoomListingView.swift in Sources */,
+				7C6F989B257EC31900D67DDB /* RoomItemView.swift in Sources */,
 				7C6F98D8257EF3A500D67DDB /* DataSeeder.swift in Sources */,
 				7C6F9884257EBF8600D67DDB /* room_bookingApp.swift in Sources */,
 				7C6F98BD257ECD9000D67DDB /* User+Schema.swift in Sources */,

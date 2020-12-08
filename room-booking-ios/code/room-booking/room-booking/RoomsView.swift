@@ -12,6 +12,10 @@ struct RoomsView: View {
     
     @StateObject var viewModel = ViewModel()
     
+    init(vm: ViewModel = .init()) {
+        _viewModel = .init(wrappedValue: vm)
+    }
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -19,7 +23,7 @@ struct RoomsView: View {
                     ForEach(viewModel.rooms) { room in
                         NavigationLink(
                             destination: RoomDetailsView(room: room),
-                            label: { RoomListingView(room: room, bookingDates: nil) }
+                            label: { RoomItemView(room: room, bookingDates: nil) }
                         )
                         .accentColor(Color(.label))
                         .padding()
@@ -54,6 +58,11 @@ extension RoomsView {
 
 struct RoomsView_Previews: PreviewProvider {
     static var previews: some View {
-        RoomsView()
+        var vm = RoomsView.ViewModel()
+        vm.rooms = [
+            Room(description: "One king size bed", city: "Los Angeles", price: 100, imageKey: "stockphoto-1"),
+            Room(description: "Studio apartment", city: "El Segundo", price: 120, imageKey: "stockphoto-3")
+        ]
+        return RoomsView(vm: vm)
     }
 }

@@ -22,10 +22,10 @@ struct RoomDetailsView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "house")
+            Image(room.imageKey)
                 .resizable()
-                .frame(maxHeight: 250)
                 .aspectRatio(contentMode: .fill)
+                .frame(height: 250)
                 
             VStack(alignment: .leading) {
             
@@ -64,13 +64,13 @@ extension RoomDetailsView {
         
         @Published var checkInDate: Date = Calendar.current.date(
             byAdding: .day,
-            value: 1,
+            value: 15,
             to: Date()
         )!
         
         @Published var checkOutDate = Calendar.current.date(
             byAdding: .day,
-            value: 2,
+            value: 18,
             to: Date()
         )!
         
@@ -87,7 +87,7 @@ extension RoomDetailsView {
                 do {
                     let savedBooking = try result.get()
                     print("booked", savedBooking)
-                    print(savedBooking)
+
                 } catch {
                     print(error)
                 }
@@ -98,6 +98,6 @@ extension RoomDetailsView {
 
 struct RoomDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        RoomDetailsView(room: Room(description: "King sized bed", city: "Yucaipa", price: 50, imageKey: ""))
+        RoomDetailsView(room: Room(description: "King sized bed", city: "Los Angeles", price: 100, imageKey: "stockphoto-1"))
     }
 }
