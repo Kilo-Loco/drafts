@@ -1,0 +1,9 @@
+platform :ios, '14.0'
+
+target 'room-booking' do
+  use_frameworks!
+
+  pod 'Amplify'
+  pod 'AmplifyPlugins/AWSAPIPlugin'
+  pod 'AmplifyPlugins/AWSDataStorePlugin'
+end

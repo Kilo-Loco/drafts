@@ -1,0 +1,21 @@
+type Booking @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  room: Room! @connection
+  guestId: ID!
+  checkInDate: AWSDate!
+  checkOutDate: AWSDate!
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String!
+}
+
+type Room @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  description: String!
+  city: String!
+  price: Int!
+  imageKey: String!
+}
+ 

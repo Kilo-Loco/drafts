@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-roombooking-staging-204237-authRole",
+      "UnauthRoleArn": "arn:aws:iam::088987693321:role/amplify-roombooking-staging-204237-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::088987693321:role/amplify-roombooking-staging-204237-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-roombooking-staging-204237-deployment",
+      "UnauthRoleName": "amplify-roombooking-staging-204237-unauthRole",
+      "StackName": "amplify-roombooking-staging-204237",
+      "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-roombooking-staging-204237/be965860-38cc-11eb-b8a6-0ab16b781def",
+      "AmplifyAppId": "d379olcc9bry6h"
+    }
+  }
+}
