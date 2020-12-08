@@ -247,7 +247,7 @@ extension LoginView {
 2. The `ViewModel` is responsible for the state of our view. We are using an instance of a `ViewModel` class that is scoped to the `LoginView` through an `extension`
 3. This view is responsible for sending the "logged in" `User` back up the chain. This is done with a closure that will be implemented back in the `*App.swift` file.
 4. When the "Login" button is tapped, it will run `ViewModel.login`. The `onLogin` closure is passed as an argument to send the `User` up the chain.
-5. The `login` method is where we will implement the our Amplify related logic.
+5. The `login` method is where we will implement the Amplify related logic.
 
 The `LoginView` should now appear like this in the preview area:
 
@@ -255,7 +255,7 @@ The `LoginView` should now appear like this in the preview area:
 
 The prototype will only require a username to login. To make it so a user can have bookings associated with their account, we will create a `User` object for each username entered into the field. If the username has already been used, we can simply return the existing `User` so they can log back in.
 
-In order to simply this process, we will be making the `id` and `username` the same value when creating a `User`. This makes it easier to query a `User` by id.
+In order to simplify this process, we will be making the `id` and `username` the same value when creating a `User`. This makes it easier to query a `User` by `id`.
 
 Add the following to `ViewModel.login`:
 
@@ -664,6 +664,22 @@ Amplify.DataStore.query(
 ```
 
 This query provides a predicate that specifies that `booking.guestId` matches `user.id` and all results that come back should be sorted in ascending order based on the check in date. Then we update the `bookings` of the `ViewModel` so the list can be shown in the view.
+
+To fix the compiler errors, create another file named `Booking+Extensions.swift` with the following code:
+
+```swift
+import Foundation
+
+extension Booking: Identifiable {}
+
+extension Booking {
+    var bookingDates: (checkInDate: Date, checkOutDate: Date) {
+        (checkInDate.foundationDate, checkOutDate.foundationDate)
+    }
+}
+```
+
+Making `Booking` conform to `Identifiable` will allow each object to be managed by SwiftUI when iterating over them in a `ForEach`. The `bookingDates` property makes for a cleaner call site when passing the tuple of check in and check out dates; especially since those properties are Amplify wrappers around `Foundation.Date` and not `Foundation.Date`'s themselves.
 
 With that last view out of the way, we can update the `*App` object to handle a user logging in and selecting a tab. Add this to the `body` in `*App.swift`:
 
