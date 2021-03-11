@@ -38,7 +38,7 @@ Choose "Data" as the feature to setup, select "Blank schema", and click "Create 
 
 Now that we have a blank data modeling canvas, we can start adding our models.
 
-The prototype will allow different users to "sign in" by simpling providing a username. Let's add a `User` model that will simply have an `id` and `username`.
+The prototype will allow different users to "sign in" by providing a username. Let's add a `User` model that will simply have an `id` and `username`.
 
 ![User model](assets/user-model.png)
 
