@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
             // Sign Up Button
             Container(
               alignment: Alignment.bottomCenter,
-              child: FlatButton(
+              child: ElevatedButton(
                   onPressed: widget.shouldShowSignUp,
                   child: Text('Don\'t have an account? Sign up.')),
             )
@@ -60,10 +60,11 @@ class _LoginPageState extends State<LoginPage> {
         ),
 
         // Login Button
-        FlatButton(
+        ElevatedButton(
             onPressed: _login,
             child: Text('Login'),
-            color: Theme.of(context).accentColor)
+            style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).accentColor))
       ],
     );
   }

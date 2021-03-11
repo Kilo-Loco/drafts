@@ -104,14 +104,21 @@ exit code 0
 Open `main.dart` and add the Analytics plugin to the instance of Amplify used to configure the other plugins:
 
 ```dart
-... // void _configureAmplify() async {
+import 'package:amplify_analytics_pinpoint/amplify_analytics_pinpoint.dart';
 
-_amplify.addPlugin(
-    authPlugins: [AmplifyAuthCognito()],
-    storagePlugins: [AmplifyStorageS3()],
-    analyticsPlugins: [AmplifyAnalyticsPinpoint()]);
+... // import 'package:amplify_storage_s3/amplify_storage_s3.dart';
+
+...
 
 ... // try {
+
+Amplify.addPlugins([
+  AmplifyAuthCognito(),
+  AmplifyStorageS3(),
+  AmplifyAnalyticsPinpoint()
+]);
+
+.. // await Amplify.configure(amplifyconfig);
 ```
 
 Run the app. You should still see the success message in the logs indicating that Amplify is still properly configured and is including the Analytics plugin.
@@ -197,7 +204,7 @@ class TakePictureEvent extends AbstractAnalyticsEvent {
 Now let's create an object with the ability to turn an instance of our `AbstractAnalyticsEvent` into an `AnalyticsEvent`. Create a new file called `analytics_service` and add the following:
 
 ```dart
-import 'package:amplify_core/amplify_core.dart';
+import 'package:amplify_flutter/amplify.dart';
 import 'analytics_events.dart';
 
 class AnalyticsService {

@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
             // Sign Up Button
             Container(
               alignment: Alignment.bottomCenter,
-              child: FlatButton(
+              child: ElevatedButton(
                   onPressed: () {},
                   child: Text('Don\'t have an account? Sign up.')),
             )
@@ -127,10 +127,11 @@ class _LoginPageState extends State<LoginPage> {
         ),
 
         // Login Button
-        FlatButton(
+        ElevatedButton(
             onPressed: _login,
             child: Text('Login'),
-            color: Theme.of(context).accentColor)
+            style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).accentColor))
       ],
     );
   }
@@ -198,7 +199,7 @@ class _SignUpPageState extends State<SignUpPage> {
             // Login Button
             Container(
               alignment: Alignment.bottomCenter,
-              child: FlatButton(
+              child: ElevatedButton(
                   onPressed: () {},
                   child: Text('Already have an account? Login.')),
             )
@@ -234,10 +235,11 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
 
         // Sign Up Button
-        FlatButton(
+        ElevatedButton(
             onPressed: _signUp,
             child: Text('Sign Up'),
-            color: Theme.of(context).accentColor)
+            style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).accentColor))
       ],
     );
   }
@@ -642,10 +644,11 @@ class _VerificationPageState extends State<VerificationPage> {
         ),
 
         // Verify Button
-        FlatButton(
+        ElevatedButton(
             onPressed: _verify,
             child: Text('Verify'),
-            color: Theme.of(context).accentColor)
+            style: ElevatedButton.styleFrom(
+                primary: Theme.of(context).accentColor))
       ],
     );
   }

@@ -76,7 +76,7 @@ You can also verify that your Auth resource has been properly configured by view
 Back in Visual Studio Code, open `pubspec.yaml` and add the following dependency:
 
 ```yaml
-... # amplify_core: '<1.0.0'
+... # amplify_flutter: '<1.0.0'
 
 amplify_auth_cognito: '<1.0.0'
 
@@ -96,11 +96,17 @@ exit code 0
 Now that the Auth dependency is installed, we can add the Auth plugin to our `Amplify` instance in `_MyAppState._configureAmplify()` of the `main.dart` file:
 
 ```dart
-... // void _configureAmplify() async {
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 
-_amplify.addPlugin(authPlugins: [AmplifyAuthCognito()]);
+... // import 'package:amplify_flutter/amplify.dart';
+
+...
 
 ... // try {
+
+await Amplify.addPlugins([AmplifyAuthCognito()]);
+
+... // await Amplify.configure(amplifyconfig);
 ```
 
 Now run the app and confirm you still get the success message in your logs.

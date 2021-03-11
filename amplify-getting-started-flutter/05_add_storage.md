@@ -105,13 +105,20 @@ exit code 0
 Now navigate back to `main.dart` so Storage can be added as a plugin on our instance of `Amplify`:
 
 ```dart
-... // void _configureAmplify() async {
+import 'package:amplify_storage_s3/amplify_storage_s3.dart';
 
-_amplify.addPlugin(
-    authPlugins: [AmplifyAuthCognito()],
-    storagePlugins: [AmplifyStorageS3()]);
+... // import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+
+...
 
 ... // try {
+
+Amplify.addPlugins([
+  AmplifyAuthCognito(),
+  AmplifyStorageS3()
+]);
+
+... // await Amplify.configure(amplifyconfig);
 ```
 
 Run the app. You should still see the success message in the logs indicating that Amplify is still properly configured and is including the Storage plugin.
@@ -126,7 +133,7 @@ To keep our code organized, let's create a seperate file called `storage_service
 
 ```dart
 import 'dart:async';
-import 'package:amplify_core/amplify_core.dart';
+import 'package:amplify_flutter/amplify.dart';
 import 'package:amplify_storage_s3/amplify_storage_s3.dart';
 
 class StorageService {
@@ -289,7 +296,7 @@ Right now we're still showing a `Placeholder` for each item in the grid. We will
 ```yaml
 ... # amplify_storage_s3: '<1.0.0'
 
-cached_network_image: ^2.3.3
+cached_network_image: ^2.5.1
 
 ... # dev_dependencies:
 ```

@@ -2,14 +2,14 @@
 
 ## Overview
 
-In this tutorial, you will create a cross-platform photo gallery app using AWS Amplify as a serverless backend that interfaces with your Flutter app. Through the modules of this tutorial, you will implement a UI that allows the user to take pictures, create a sign-in flow, upload and download images to/from a private AWS S3 bucket, and add various analytics event that can be monitored through AWS Pinpoint.
+In this tutorial, you will create a cross-platform photo gallery app using AWS Amplify as a serverless backend that interfaces with your Flutter app. Through the modules of this tutorial, you will implement a UI that allows the user to take pictures, create a sign-in flow, upload and download images to/from a private Amazon S3 bucket, and add various analytics event that can be monitored through Amazon Pinpoint.
 
 ## What You Will Learn
 
 - Manage a serverless backend using the AWS Amplify CLI
-- Authenticate users using AWS Cognito
-- Uploading and downloading files to/from AWS S3
-- Record analytics events to AWS Pinpoint
+- Authenticate users using Amazon Cognito
+- Uploading and downloading files to/from Amazon S3
+- Record analytics events to Amazon Pinpoint
 
 ## Modules
 
@@ -18,7 +18,7 @@ This tutoial is divided into five modules focused on covering a particular topic
 - [Create a Flutter App](02_create_a_flutter_app.md) (30 minutes): Create a Flutter application with all the UI components implemented.
 - [Initialize Amplify](03_initialize_amplify.md) (10 minutes): Initialize a local Amplify app using the AWS Amplify CLI.
 - [Add Authentication](04_add_authentication.md) (10 minutes): Implement user authentication to your app.
-- [Add Storage](05_add_storage.md) (10 minutes): Implement image upload and download to/from AWS S3.
+- [Add Storage](05_add_storage.md) (10 minutes): Implement image upload and download to/from Amazon S3.
 - [Add Analytics](06_add_analytics.md) (10 minutes): Implement event logging in multiple areas throughout the app.
 
 The last module, [Clean Up](07_clean_up.md), is optional but recommended if you intend to make your project public as a security measure.
@@ -37,11 +37,11 @@ This tutorial will not require any previous knowledge with AWS or any of its ser
 
 ## Prerequisites
 
-- [Install Flutter](https://flutter.dev/docs/get-started/install) version 1.20.0 or higher
+- [Install Flutter](https://flutter.dev/docs/get-started/install) version 1.22.0 or higher
 - An [editor](https://flutter.dev/docs/get-started/editor?tab=vscode) that compatible with Flutter. (This tutorial will assume you are using Visual Studio Code, but you can use a different editor if you want.)
-- Install the Amplify-Flutter Developer Preview version of the Amplify CLI by running:
+- Install the Amplify CLI by running:
   ```bash
-  npm install -g @aws-amplify/cli@flutter-preview
+  npm install -g @aws-amplify/cli
   ```
 - Sign up for an [AWS account](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fportal.aws.amazon.com%2Fbilling%2Fsignup%2Fresume&client_id=signup#/start)
 - An Android or iOS device so you can take pictures

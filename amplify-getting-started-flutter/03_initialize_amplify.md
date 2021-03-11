@@ -21,19 +21,19 @@ At this point, you will need to have the Amplify-Flutter Developer Preview versi
 
 AWS Amplify CLI depends on Node.js to be installed, which can be found [here](https://nodejs.org/en/download/).
 
-To download the Amplify-Flutter Developer Preview version of the CLI, run the following:
+To download the Amplify CLI, run the following:
 
 ```shell
-npm install -g @aws-amplify/cli@flutter-preview
+npm install -g @aws-amplify/cli
 ```
 
-Verify you are now using the Flutter Preview version of the CLI by running `$ amplify --version`. You should see something like this:
+Verify you are running the latest version of the CLI by running `$ amplify --version`. You should see something like this:
 
 ```shell
 photo_gallery git:(master) ✗ amplify --version
 Scanning for plugins...
 Plugin scan successful
-4.26.1-flutter-preview.0
+4.45.0
 ```
 
 If you have not already configured your Amplify CLI, be sure to run this:
@@ -94,19 +94,13 @@ Note: It is recommended to run this command from the root of your app directory
 ? Enter a name for the environment dev
 ? Choose your default editor: Visual Studio Code
 ? Choose the type of app that you're building flutter
-Please tell us about your project
-⚠️  Flutter project support in the Amplify CLI is in DEVELOPER PREVIEW.
-Only the following categories are supported:
- * Auth
- * Analytics
- * Storage
 ? Where do you want to store your configuration file? ./lib/
 Using default provider  awscloudformation
+? Select the authentication method you want to use: AWS profile
 
 For more information on AWS Profiles, see:
-https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 
-? Do you want to use an AWS profile? Yes
 ? Please choose the profile you want to use default
 ```
 
@@ -120,7 +114,7 @@ Initialized your environment successfully.
 Your project has been successfully initialized and connected to the cloud!
 ```
 
-If you run `$ ls` at the root directory of your project, you should notice a new file `amplify.json` and folder `amplify` have been added to your project. Running `$ ls lib` will also reveal that a new file `amplifyconfiguration.dart` has been added there as well.
+If you run `$ ls` at the root directory of your project, you should notice a new folder `amplify` has been added to your project. Running `$ ls lib` will also reveal that a new file `amplifyconfiguration.dart` has been added there as well.
 
 ## Add Dependencies to your Project
 
@@ -131,7 +125,7 @@ Back in Visual Studio Code, open `pubspec.yaml` and add the following dependency
 ```yaml
 ... # path:
 
-amplify_core: '<1.0.0'
+amplify_flutter: '<1.0.0'
 
 ... # dev_dependencies
 ```
@@ -152,14 +146,11 @@ platform :ios, '11.0'
 
 To use the Amplify Flutter Library, it's important that Amplify is configured before any of the categories are used.
 
-Open `main.dart` and add an instance of `Amplify` in `_MyAppState`:
+Open `main.dart` and import the following:
 
 ```dart
-... // class _MyAppState extends State<MyApp> {
-
-final _amplify = Amplify();
-
-... // final _authService = AuthService();
+import 'package:amplify_flutter/amplify.dart';
+import 'amplifyconfiguration.dart';
 ```
 
 Now create a function to configure Amplify:
@@ -169,7 +160,7 @@ Now create a function to configure Amplify:
 
 void _configureAmplify() async {
   try {
-    await _amplify.configure(amplifyconfig);
+    await Amplify.configure(amplifyconfig);
     print('Successfully configured Amplify 🎉');
   } catch (e) {
     print('Could not configure Amplify ☠️');
