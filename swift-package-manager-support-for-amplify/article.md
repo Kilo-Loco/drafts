@@ -42,9 +42,9 @@ From here on, the code to interact with the Amplify Libraries is the same, with 
 
 This is a result of using the modular system of SPM that allows for using only relevant pieces of the dependency being installed. In this case, the categories of Amplify.
 
-## Migrating to SPM from Cocoapods
+## Migrating to SPM from CocoaPods
 
-If you have an existing iOS project that is already using Amplify, you can migrate your project to Swift Package Manager and remove Cocoapods completey, assuming that Amplify is the only dependency using Cocoapods.
+If you have an existing iOS project that is already using Amplify, you can migrate your project to Swift Package Manager and remove CocoaPods completey, assuming that Amplify is the only dependency using CocoaPods.
 
 Start by installing `cocoapods-deintegrate` and `cocoapods-clean`, two gems built to remove CocoaPods from your project:
 
