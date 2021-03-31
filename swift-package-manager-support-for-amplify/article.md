@@ -44,7 +44,7 @@ This is a result of using the modular system of SPM that allows for using only r
 
 ## Migrating to SPM from Cocoapods
 
-If you have an existing iOS project that is already using Amplify, you can migrate your project to Swift Package Manage and remove Cocoapods completey, assuming that Amplify is the only dependency using Cocoapods.
+If you have an existing iOS project that is already using Amplify, you can migrate your project to Swift Package Manager and remove Cocoapods completey, assuming that Amplify is the only dependency using Cocoapods.
 
 Start by installing `cocoapods-deintegrate` and `cocoapods-clean`, two gems built to remove CocoaPods from your project:
 
