@@ -2,7 +2,7 @@
 
 Up until now, if you wanted to use AWS Amplify in your iOS app, you would have to install the Amplify Libraries using CocoaPods. Being the most popular dependency manager used for iOS projects written in Objective-C and/or Swift for nearly a decade, it was an absolute requirement to allow Amplify to be installed into an iOS project using CocoaPods.
 
-Today, the AWS Amplify team is happy to announce support for latest, first-party, dependency installer: Swift Package Manager.
+Today, the AWS Amplify team is happy to announce support for the latest, first-party, dependency installer: Swift Package Manager.
 
 ## What is Swift Package Manager?
 
