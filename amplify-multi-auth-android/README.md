@@ -17,7 +17,7 @@ To follow along, you should have the following prerequisites:
   - Logging to Logcat in Android Studio
   - Building simple UI
   - Handling user input
-- Android Studio Preview (Optional)
+- [Android Studio Preview](https://developer.android.com/studio/preview) (Optional)
   - The UI will be built using Jetpack Compose, but XML can be used instead
 
 ## Configuring Amplify Categories
@@ -98,7 +98,7 @@ With the Amplify app fully configured locally, it's time to push the app to the 
 $ amplify push -y
 ```
 
-Lastly, to ensure that a `Post` model has been generated in Swift and added to your project, run the following:
+Lastly, to ensure that a `Post` model has been generated in Kotlin and added to your project, run the following:
 
 ```bash
 $ amplify codegen models
@@ -397,14 +397,12 @@ Signed out
 Next, run the same tests as done for an authenticated user. Tap **Query Posts**. You will see the following output:
 
 ```
-success([
-  YourAppName.Post(
-    id: "AE8F6F49-1293-4189-8254-A401E6AF1B07", 
-    content: "My content 66", 
-    createdAt: Optional(Amplify.Temporal.DateTime(foundationDate: 2021-07-09 15:43:15 +0000)), 
-    updatedAt: Optional(Amplify.Temporal.DateTime(foundationDate: 2021-07-09 15:43:15 +0000))
-  )
-])
+Post {
+    id=e220dd30-c839-4064-b386-94a3a9fd28ce, 
+    content=My content 90, 
+    createdAt=Temporal.DateTime{offsetDateTime='2021-07-20T19:55:59.084Z'}, 
+    updatedAt=Temporal.DateTime{offsetDateTime='2021-07-20T19:55:59.084Z'}
+}
 ```
 
 Since `Post` objects can be read by the public using `API key`, the `Post` from the authenticated user can be queried by the unauthenticated user.
@@ -412,37 +410,33 @@ Since `Post` objects can be read by the public using `API key`, the `Post` from 
 Attempt to create a new `Post` object as an unauthenticated user by tapping **Create Post**, then **Query Posts**. Observe the following output:
 
 ```
-success([
-  YourAppName.Post(
-    id: "AE8F6F49-1293-4189-8254-A401E6AF1B07", 
-    content: "My content 66", 
-    createdAt: Optional(Amplify.Temporal.DateTime(foundationDate: 2021-07-09 15:43:15 +0000)), 
-    updatedAt: Optional(Amplify.Temporal.DateTime(foundationDate: 2021-07-09 15:43:15 +0000))
-  ),
-  YourAppName.Post(
-    id: "D7A7FBB3-6B8C-4427-AE17-D57F42E426D3", 
-    content: "My content 41", 
-    createdAt: nil, 
-    updatedAt: nil
-  )
-])
+Post {
+    id=e220dd30-c839-4064-b386-94a3a9fd28ce, 
+    content=My content 90, 
+    createdAt=Temporal.DateTime{offsetDateTime='2021-07-20T19:55:59.084Z'}, 
+    updatedAt=Temporal.DateTime{offsetDateTime='2021-07-20T19:55:59.084Z'}
+}
+Post {
+    id=140BB206-3591-4E7E-B60A-16C4DD61EA37, 
+    content=My content 38, 
+    createdAt=null, 
+    updatedAt=null'}
+}
 ```
 
 The unauthenticated user can still create `Post` objects and save them locally. The `Post` authorization rules only apply to synchronizing the data with the backend, not to CRUD (create, read, update, delete) operations locally.
 
-Another difference you'll notice is that `createdAt` and `updatedAt` are `nil`. This is because the `createPost` method created a `Post` object with only the `content` argument passed to the initializer. If `createdAt` and `updatedAt` aren't provided values during initialization, they will only be updated when stored in the backend. Since this new object is not synced to the backend, those values remain `nil`.
+Another difference you'll notice is that `createdAt` and `updatedAt` are `null`. This is because `createdAt` and `updatedAt` will only be updated when synced to the backend. Since this new object is not synced to the backend, those values remain `null`.
 
 The next test is deleting the first `Post`, which was created by the authenticated user. Tap **Delete First Post**, then **Query Posts** to get the following results:
 
 ```
-success([
-  YourAppName.Post(
-    id: "D7A7FBB3-6B8C-4427-AE17-D57F42E426D3", 
-    content: "My content 41", 
-    createdAt: nil, 
-    updatedAt: nil
-  )
-])
+Post {
+    id=140BB206-3591-4E7E-B60A-16C4DD61EA37, 
+    content=My content 38, 
+    createdAt=null, 
+    updatedAt=null'}
+}
 ```
 
 In the output above, there is only one `Post` being returned in the array, the one created by the unauthenticated user. As mentioned previously, CRUD operations will still work locally for unauthenticated users, but will not affect the backend data if the authorization rules do not allow the operation. This behavior can be useful for apps that allow unauthenticated users to have limited access while giving authenticated users the advantage of keeping data synchronized across app instances.
@@ -463,4 +457,4 @@ $ amplify delete
 
 ## Conclusion
 
-Now you know how to configure and use multiple authorization types with Amplify DataStore on iOS. To learn more about different authorization scenarios, check out [Setup authorization rules](https://docs.amplify.aws/lib/datastore/setup-auth-rules/q/platform/ios). If you have additional ideas to improve the experience of using Amplify for iOS, [please leave us a feature request on GitHub](https://github.com/aws-amplify/amplify-ios/issues/new), or come [chat with us on Discord](https://discord.gg/amplify).
+Now you know how to configure and use multiple authorization types with Amplify DataStore on Android. To learn more about different authorization scenarios, check out [Setup authorization rules](https://docs.amplify.aws/lib/datastore/setup-auth-rules/q/platform/android). If you have additional ideas to improve the experience of using Amplify for Android, [please leave us a feature request on GitHub](https://github.com/aws-amplify/amplify-android/issues/new), or come [chat with us on Discord](https://discord.gg/amplify).
