@@ -172,10 +172,10 @@ class MyApplication : Application() {
             Amplify.addPlugin(dataStorePlugin)
             Amplify.configure(applicationContext)
 
-            Log.i("kilo", "Initialized amplify")
+            Log.i("amplify-app", "Initialized amplify")
 
         } catch (error: AmplifyException) {
-            Log.e("kilo", "Could not init amplify", error)
+            Log.e("amplify-app", "Could not init amplify", error)
         }
     }
 }
@@ -192,8 +192,8 @@ To test the capabilities and behaviors of multi-auth, make queries and mutations
 ```kotlin
 private fun fetchCurrentAuthSession() {
     Amplify.Auth.fetchAuthSession(
-        { Log.i("kilo", "Is signed in: ${it.isSignedIn}") },
-        { Log.e("kilo", "Failed to fetch session", it) }
+        { Log.i("amplify-app", "Is signed in: ${it.isSignedIn}") },
+        { Log.e("amplify-app", "Failed to fetch session", it) }
     )
 }
 
@@ -202,29 +202,29 @@ private fun signUp() {
         .userAttribute(AuthUserAttributeKey.email(), EMAIL)
         .build()
     Amplify.Auth.signUp(USERNAME, PASSWORD, options,
-        { Log.i("kilo", "Result: $it") },
-        { Log.e("kilo", "failed sign up", it) }
+        { Log.i("amplify-app", "Result: $it") },
+        { Log.e("amplify-app", "failed sign up", it) }
     )
 }
 
 private fun confirmSignUp(confirmationCode: String) {
     Amplify.Auth.confirmSignUp(USERNAME, confirmationCode,
-        { Log.i("kilo", "Confirmed sign up: $it") },
-        { Log.e("kilo", "Failed to confirm sign up", it) }
+        { Log.i("amplify-app", "Confirmed sign up: $it") },
+        { Log.e("amplify-app", "Failed to confirm sign up", it) }
     )
 }
 
 private fun signIn() {
     Amplify.Auth.signIn(USERNAME, PASSWORD,
-        { Log.i("kilo", "Signed in: $it") },
-        { Log.e("kilo", "Failed sign in", it) }
+        { Log.i("amplify-app", "Signed in: $it") },
+        { Log.e("amplify-app", "Failed sign in", it) }
     )
 }
 
 private fun signOut() {
     Amplify.Auth.signOut(
-        { Log.i("kilo","Signed out") },
-        { Log.e("kilo", "Failed to sign out", it) }
+        { Log.i("amplify-app","Signed out") },
+        { Log.e("amplify-app", "Failed to sign out", it) }
     )
 }
 ```
@@ -285,13 +285,13 @@ private fun queryPosts() {
     Amplify.DataStore.query(
         Post::class.java,
         { posts ->
-            if (!posts.hasNext()) Log.i("kilo", "No posts")
+            if (!posts.hasNext()) Log.i("amplify-app", "No posts")
             while (posts.hasNext()) {
                 val post = posts.next()
-                Log.i("kilo", post.toString())
+                Log.i("amplify-app", post.toString())
             }
         },
-        { Log.e("kilo", "Failed query", it) }
+        { Log.e("amplify-app", "Failed query", it) }
     )
 }
 
@@ -300,8 +300,8 @@ private fun createPost() {
         .content("My content ${Random.nextInt(0, 100)}")
         .build()
     Amplify.DataStore.save(newPost,
-        {Log.i("kilo", "Saved post: $newPost") },
-        { Log.e("kilo", "Failed to save", it) }
+        {Log.i("amplify-app", "Saved post: $newPost") },
+        { Log.e("amplify-app", "Failed to save", it) }
     )
 }
 
@@ -310,12 +310,12 @@ private fun deleteFirstPost() {
         { posts ->
             posts.next()?.let { post ->
                 Amplify.DataStore.delete(post,
-                    { Log.i("kilo", "Deleted post") },
-                    { Log.e("kilo", "Failed to delete", it) }
+                    { Log.i("amplify-app", "Deleted post") },
+                    { Log.e("amplify-app", "Failed to delete", it) }
                 )
             }
         },
-        { Log.e("kilo", "Failed query", it) }
+        { Log.e("amplify-app", "Failed query", it) }
     )
 }
 ```
