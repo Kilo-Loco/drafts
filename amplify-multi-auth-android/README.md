@@ -190,6 +190,12 @@ Adding `AWSApiPlugin` and `AWSCognitoAuthPlugin` are the same as any other Ampli
 To test the capabilities and behaviors of multi-auth, make queries and mutations with authenticated and unauthenticated users. Since the default authentication and security configuration was selected during `$ amplify add api`, the user will need to authenticate using the app. Add the following methods to `MainActivity`:
 
 ```kotlin
+companion object {
+    const val USERNAME = "<Your Username>"
+    const val EMAIL = "<Your Email>"
+    const val PASSWORD = "<Your Password>"
+}
+
 private fun fetchCurrentAuthSession() {
     Amplify.Auth.fetchAuthSession(
         { Log.i("amplify-app", "Is signed in: ${it.isSignedIn}") },
