@@ -9,7 +9,7 @@ Below is a high-level breakdown of the features we are announcing with Amplify L
 The Amplify Library for Swift is the new and improved version of Amplify iOS. This name change comes with the major improvements to the library, with the new support for macOS being a major deciding factor for the library no longer being referred to as Amplify iOS.
 
 ### Full Swift Integration 
-The Amplify Library for Swift is now exclusively using Swift and provides developers the ability to add cloud-based Analytics, Auth, Data, Geo, Storage, and APIs to their apps. With this version, Swift developers will be able to debug and contribute to the underlying open-source codebase completely in Swift.
+The Amplify Library for Swift is now exclusively using Swift and is built on top of the AWS SDK for Swift. With this version, Swift developers will be able to debug and contribute to the underlying open-source codebase completely in Swift.
 
 ### Structured Concurrency
 Since the Amplify Library for Swift is now fully written in Swift, one of its most popular features has made its way into the Amplify APIs. Most of the APIs for the supported categories now have the ability to use the recently release concurrency feature, async/await. Before structured concurrency, You might have written your API calls with your logic in a callback like this:
@@ -42,12 +42,9 @@ func signIn(username: String, password: String) async {
 The iOS development community made it very clear that macOS support was the most important [issue](https://github.com/aws-amplify/amplify-ios/issues/1124) to address with Amplify. We listened! The Amplify Library for Swift now supports a beta version of [Analytics](https://docs.amplify.aws/lib/analytics/getting-started/q/platform/ios/), [API](https://docs.amplify.aws/lib/graphqlapi/getting-started/q/platform/ios/), [Auth](https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/), [DataStore](https://docs.amplify.aws/lib/datastore/getting-started/q/platform/ios/), [Geo](https://docs.amplify.aws/lib/geo/getting-started/q/platform/ios/), and [Storage](https://docs.amplify.aws/lib/storage/getting-started/q/platform/ios/) for macOS development. You'll also be able to take advantage of the structured concurrency features on macOS as well.
 
 ### Other Notable Improvements
-- Improved ability to debug Auth (sign-up/sign-in) and Storage (file upload/download)
-- Removed calls to deprecated Apple APIs
-- Built on top of the new AWS SDK for Swift
+While there are plenty of improvements that have been added throughout the library, there are two that will considerably improve the developer experience with Amplify. First, adjustments to the underlying architecture improve the ability to debug some common workflows for Auth (sign-up/sign-in) and Storage (file upload/download). Second, removing calls to deprecated Apple APIs, making Amplify a warning-free dependency when added to your project.
 
 ## In conclusion
 We would love to have your feedback on this release and understand how we can help accelerate your productivity. Reach out on the [GitHub](https://github.com/aws-amplify/amplify-ios) repository, or through the Amplify Discord server under the #ios-help channel to help us prioritize features and enhancements.
-
 
 To get started building iOS and/or macOS apps with Amplify, please visit the [Amplify Swift documentation](https://docs.amplify.aws/start/q/integration/ios/).
