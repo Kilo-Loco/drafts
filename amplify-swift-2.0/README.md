@@ -1,6 +1,6 @@
 # Introducing the AWS Amplify Library for Swift
 
-The Amplify iOS team is announcing the release of version 2.0.0 of the Amplify Library for Swift. Please use this [GitHub](https://github.com/aws-amplify/amplify-ios) repo to inform the Amplify iOS team about features or issues, or visit the Amplify Discord server under the #ios-help channel.
+The Amplify iOS team is announcing the release of version 2.0.0 of the Amplify Library for Swift. Please use this [GitHub](https://github.com/aws-amplify/amplify-ios) repo to inform the Amplify iOS team about features or issues, or visit the Amplify Discord server under the [#ios-help](https://discord.gg/X75bFSGagF) channel.
 
 ## Highlights
 Below is a high-level breakdown of the features we are announcing with Amplify Library for Swift version 2.0.0 .
@@ -45,6 +45,6 @@ The iOS development community made it very clear that macOS support was the most
 While there are plenty of improvements that have been added throughout the library, there are two that will considerably improve the developer experience with Amplify. First, adjustments to the underlying architecture improve the ability to debug some common workflows for Auth (sign-up/sign-in) and Storage (file upload/download). Second, removing calls to deprecated Apple APIs, making Amplify a warning-free dependency when added to your project.
 
 ## In conclusion
-We would love to have your feedback on this release and understand how we can help accelerate your productivity. Reach out on the [GitHub](https://github.com/aws-amplify/amplify-ios) repository, or through the Amplify Discord server under the #ios-help channel to help us prioritize features and enhancements.
+We would love to have your feedback on this release and understand how we can help accelerate your productivity. Reach out on the [GitHub](https://github.com/aws-amplify/amplify-ios) repository, or through the Amplify Discord server under the [#ios-help](https://discord.gg/X75bFSGagF) channel to help us prioritize features and enhancements.
 
 To get started building iOS and/or macOS apps with Amplify, please visit the [Amplify Swift documentation](https://docs.amplify.aws/start/q/integration/ios/).
