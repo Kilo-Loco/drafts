@@ -4,7 +4,7 @@ With the [release of the AWS Amplify Libraries for Swift](https://aws.amazon.com
 
 This article will show you how to use async/await with the Amplify Libraries for Swift and will demonstrate how efficiently you can write asynchronous code with this new release.
 
-### Chaining Operations
+## Chaining Operations
 
 One of the most common operations in most modern apps is to authenticate a user and keep that user signed in for subsequent launches of the app. This functionality can be implemented by using Amplify Auth's  Before the latest release of the Amplify Libraries for Swift, one solution would be to use Combine to chain operations using `flatMap` like the snippet below:
 
@@ -50,7 +50,7 @@ func autoSignIn() async {
 
 Using async/await for a scenario like auto sign-in makes the code more concise and reduces the amount of knowledge that is needed of a reactive framework like Combine. It also helps prevent issues like memory leaks since there is no need to terminate subscriptions to any streams.
 
-### Working with Publishers
+## Working with Publishers
 
 Async/await is great for scenarios where only a single asynchronous value is needed to complete an operation. However, there are still many instances where publishers are very useful and it still makes sense to use Combine.
 
@@ -84,7 +84,7 @@ The snippet above takes advantage of another new API offered by the Amplify Libr
 
 This examples demonstrates that Combine and async/await can work together, giving the developer the option to choose the best tool for the job.
 
-### Awaiting Values Over Time
+## Awaiting Values Over Time
 
 Observing the progress of a file upload is a good use-case for when Combine may come in handy, but it's not the only way that progress can be observed. To allow developers to keep a consistent and consise codebase when working with the Amplify Libraries, the upload and download APIs for Amplify Storage offer a solution to monitor progress as the file transfer is executing.
 
@@ -141,7 +141,7 @@ func uploadVideo() async {
 
 Using async/await to monitor progress allows the developer to stick with the Swift language native features and removes the risk of improperly managing streams. It also keeps the code simple if the developer needs to chain other operations after the upload is complete.
 
-### Conclusion
+## Conclusion
 
 With the latest release of the AWS Amplify Libraries for Swift, developers are given the opportunity to use one of the Swift programming language's most popular new features, async/await. Reach out on the [GitHub](https://github.com/aws-amplify/amplify-ios) repository, or through the Amplify Discord server under the [#swift-help](http://discord.gg/invite/amplify) channel if you run into issues or need help.
 
