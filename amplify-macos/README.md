@@ -242,3 +242,9 @@ To run the same app on iOS, add **iPhone** as a Supported Destination:
 Build and run on an iPhone simulator and you will be able to sign in using the credentials used to sign up on macOS:
 
 ![Sign in on iPhone](assets/amplify-macos-ios-demo.gif)
+
+## Conclusion
+
+The latest release of the Amplify Libraries for Swift now has beta support for macOS and work has already started to support more Apple platforms. As you use Amplify to build your next project, be sure to reach out on the [GitHub](https://github.com/aws-amplify/amplify-swift) repository, or through the Amplify Discord server under the [#swift-help](http://discord.gg/invite/amplify) channel to help us prioritize features and enhancements.
+
+To get started building iOS and/or macOS apps with Amplify, please visit the [Amplify Library for Swift documentation](https://docs.amplify.aws/start/q/integration/ios/).
